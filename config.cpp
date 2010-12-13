@@ -26,6 +26,11 @@ void Config::dump()
   m_root->dump();
 }
 
+ConfigNode* Config::root()
+{
+  return m_root;
+}
+
 bool Config::bData(std::string key)
 {
   if (m_root->has(key))	
@@ -80,4 +85,9 @@ ConfigNode* Config::mData(std::string key)
   {
     return m_root->get(key, false);
   }
+}
+
+std::list<std::string>* Config::keys(int type)
+{
+  return m_root->keys();
 }

@@ -48,7 +48,7 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr)
       {
         if (tmp_data == file)
         {
-          std::cout << "Warning: recursion detected! Not including `" << tmp_data << "`.\n";
+          std::cerr << "Warning: recursion detected! Not including `" << tmp_data << "`.\n";
           continue;
         }
 
@@ -67,14 +67,11 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr)
 
     if ((token_type == CONFIG_TOKEN_ENTITY) || (token_type == CONFIG_TOKEN_LABEL))
     {
-      std::cout << "Got an entity/label: " << token_data << "\n";
       token_label.assign(token_data);
     }
 
     if (token_type == CONFIG_TOKEN_OPERATOR_ASSIGN)
     {
-      std::cout << "Got an assignment operator\n";
-
       if (currentNode != root)
       {
         currentNode->clear();
@@ -83,8 +80,6 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr)
 
     if (token_type == CONFIG_TOKEN_STRING)
     {
-      std::cout << "Got a string: " << token_data << "\n";
-
       ConfigNode* newNode = new ConfigNode;
       newNode->setData(token_data);
       if (token_label.size())
@@ -100,8 +95,6 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr)
 
     if (token_type == CONFIG_TOKEN_NUMBER)
     {
-      std::cout << "Got a number: " << token_data << "\n";
-
       ConfigNode* newNode = new ConfigNode;
       newNode->setData((double)::atof(token_data.c_str()));
       if (token_label.size())
@@ -117,8 +110,6 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr)
 
     if (token_type == CONFIG_TOKEN_LIST_OPEN)
     {
-      std::cout << "Got a list initiator\n";
-
       ConfigNode* newNode;
       if (token_label.size())
       {
@@ -143,8 +134,6 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr)
 
     if (token_type == CONFIG_TOKEN_LIST_CLOSE)
     {
-      std::cout << "Got a list terminator\n";
-
       currentNode = nodeStack.back();
       nodeStack.pop_back();
     }

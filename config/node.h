@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <list>
 
 #define CONFIG_NODE_UNDEFINED 0
 #define CONFIG_NODE_LIST 1
@@ -33,6 +34,7 @@ public:
   void setData(float data);
   void setData(double data);
   void setData(std::string& data);
+  std::list<std::string>* keys(int type=CONFIG_NODE_UNDEFINED);
   int type();
   void setType(int type);
   bool has(std::string& key);

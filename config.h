@@ -2,6 +2,7 @@
 #define _CONFIG_H
 
 #include <string>
+#include <list>
 
 #include "config/parser.h"
 #include "config/node.h"
@@ -15,6 +16,8 @@ public:
   bool load(std::string file);
   void dump();
 
+  ConfigNode* root();
+
   int iData(std::string name);
   long lData(std::string name);
   float fData(std::string name);
@@ -22,6 +25,8 @@ public:
   std::string sData(std::string name);
   bool bData(std::string name);
   ConfigNode* mData(std::string name);
+
+  std::list<std::string>* keys(int type=CONFIG_NODE_UNDEFINED);
 
 private:
   ConfigParser* m_parser;

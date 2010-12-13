@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
 #include <map>
+#include <list>
 #include <iostream>
 
 #include "node.h"
@@ -138,6 +139,37 @@ std::string ConfigNode::sData()
   std::string tmp;
   data(&tmp);
   return tmp;
+}
+
+std::list<std::string>* ConfigNode::keys(int type)
+{
+  std::map<std::string, ConfigNode*>::iterator iter_a = m_list.begin();
+  std::map<std::string, ConfigNode*>::iterator iter_b = m_list.end();
+
+  std::list<std::string>* keys = new std::list<std::string>;
+
+  for (;iter_a!=iter_b;++iter_a)
+  {
+    if ((type == CONFIG_NODE_UNDEFINED) || (iter_a->second->type() == type))
+    {
+      keys->push_back(iter_a->first);
+    }
+
+    if (iter_a->second->type() == CONFIG_NODE_LIST)
+    {
+      std::list<std::string>* tmp_list = iter_a->second->keys(type);
+      std::list<std::string>::iterator tmp_iter = tmp_list->begin();
+
+      for (;tmp_iter!=tmp_list->end();++tmp_iter)
+      {
+        keys->push_back((iter_a->first)+"."+(*tmp_iter));
+      }
+
+      delete tmp_list;
+    }
+  }
+
+  return keys;
 }
 
 void ConfigNode::setData(bool data)
