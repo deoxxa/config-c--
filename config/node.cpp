@@ -253,7 +253,7 @@ bool ConfigNode::has(std::string& key)
   }
 }
 
-ConfigNode* ConfigNode::get(std::string& key, bool createMissing=true)
+ConfigNode* ConfigNode::get(std::string& key, bool createMissing)
 {
   if (m_type != CONFIG_NODE_LIST)
   {
@@ -305,7 +305,7 @@ ConfigNode* ConfigNode::get(std::string& key, bool createMissing=true)
   }
 }
 
-bool ConfigNode::set(std::string& key, ConfigNode* ptr, bool createMissing=true)
+bool ConfigNode::set(std::string& key, ConfigNode* ptr, bool createMissing)
 {
   m_type = CONFIG_NODE_LIST;
 

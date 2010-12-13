@@ -26,6 +26,8 @@ public:
   bool bData(std::string name);
   ConfigNode* mData(std::string name);
 
+  bool has(std::string name);
+  int type(std::string name);
   std::list<std::string>* keys(int type=CONFIG_NODE_UNDEFINED);
 
 private:

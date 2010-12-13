@@ -38,8 +38,8 @@ public:
   int type();
   void setType(int type);
   bool has(std::string& key);
-  ConfigNode* get(std::string& key, bool createMissing);
-  bool set(std::string& key, ConfigNode* ptr, bool createMissing);
+  ConfigNode* get(std::string& key, bool createMissing=true);
+  bool set(std::string& key, ConfigNode* ptr, bool createMissing=true);
   bool add(ConfigNode* ptr);
   void clear();
   void dump(int indent);

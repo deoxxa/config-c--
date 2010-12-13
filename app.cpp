@@ -17,7 +17,7 @@ int main()
     std::cout << "\nDump of config:\n";
     config->dump();
 
-    std::cout << "\nPort value:\n";
+    std::cout << "\ncore.net.port value:\n";
     std::cout << config->iData("core.net.port") << "\n";
 
     std::cout << "\nKeys in 'core.net':\n";
@@ -27,6 +27,10 @@ int main()
     {
       std::cout << *tmp_iter << "\n";
     }
+
+    std::cout << "\nKeys exist?\n";
+    std::cout << "core.net.host: " << (config->has("core.net.host") ? "true" : "false") << "\n";
+    std::cout << "does.not.exist: " << (config->has("does.not.exist") ? "true" : "false") << "\n";
 
     std::cout << "\n";
   }

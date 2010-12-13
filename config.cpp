@@ -87,6 +87,23 @@ ConfigNode* Config::mData(std::string key)
   }
 }
 
+bool Config::has(std::string key)
+{
+  return m_root->has(key);
+}
+
+int Config::type(std::string key)
+{
+  if (m_root->has(key))
+  {
+    return m_root->get(key)->type();
+  }
+  else
+  {
+    return CONFIG_NODE_UNDEFINED;
+  }
+}
+
 std::list<std::string>* Config::keys(int type)
 {
   return m_root->keys();
