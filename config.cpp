@@ -37,6 +37,8 @@ bool Config::bData(std::string key)
   {
     return m_root->get(key, false)->bData();
   }
+
+  return NULL;
 }
 
 int Config::iData(std::string key)
@@ -45,6 +47,8 @@ int Config::iData(std::string key)
   {
     return m_root->get(key, false)->iData();
   }
+
+  return NULL;
 }
 
 long Config::lData(std::string key)
@@ -53,6 +57,8 @@ long Config::lData(std::string key)
   {
     return m_root->get(key, false)->lData();
   }
+
+  return NULL;
 }
 
 float Config::fData(std::string key)
@@ -61,6 +67,8 @@ float Config::fData(std::string key)
   {
     return m_root->get(key, false)->fData();
   }
+
+  return NULL;
 }
 
 double Config::dData(std::string key)
@@ -69,6 +77,8 @@ double Config::dData(std::string key)
   {
     return m_root->get(key, false)->dData();
   }
+
+  return NULL;
 }
 
 std::string Config::sData(std::string key)
@@ -77,6 +87,8 @@ std::string Config::sData(std::string key)
   {
     return m_root->get(key, false)->sData();
   }
+
+  return NULL;
 }
 
 ConfigNode* Config::mData(std::string key)
@@ -85,6 +97,8 @@ ConfigNode* Config::mData(std::string key)
   {
     return m_root->get(key, false);
   }
+
+  return NULL;
 }
 
 bool Config::has(std::string key)

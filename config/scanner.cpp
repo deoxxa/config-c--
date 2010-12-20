@@ -58,7 +58,7 @@ int ConfigScanner::left()
 
 int ConfigScanner::move(int len)
 {
-  if ((m_pos + len) > m_data.length())
+  if ((unsigned int)(m_pos + len) > m_data.length())
   {
     len = m_data.length() - m_pos;
   }
@@ -80,7 +80,7 @@ char ConfigScanner::get()
 
 char ConfigScanner::at(int offset)
 {
-  if (offset >= m_data.length())
+  if ((unsigned int)offset >= m_data.length())
   {
     return -1;
   }

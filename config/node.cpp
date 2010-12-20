@@ -6,7 +6,7 @@
 
 #include "node.h"
 
-ConfigNode::ConfigNode() : m_type(0),m_nData(0),m_index(0)
+ConfigNode::ConfigNode() : m_type(0),m_index(0),m_nData(0)
 {
 }
 
@@ -30,6 +30,7 @@ bool ConfigNode::data(bool* ptr)
   }
   else
   {
+    ptr = false;
     return false;
   }
 }
@@ -43,6 +44,7 @@ bool ConfigNode::data(int* ptr)
   }
   else
   {
+    ptr = NULL;
     return false;
   }
 }
@@ -56,6 +58,7 @@ bool ConfigNode::data(long* ptr)
   }
   else
   {
+    ptr = NULL;
     return false;
   }
 }
@@ -69,6 +72,7 @@ bool ConfigNode::data(float* ptr)
   }
   else
   {
+    ptr = NULL;
     return false;
   }
 }
@@ -82,6 +86,7 @@ bool ConfigNode::data(double* ptr)
   }
   else
   {
+    ptr = NULL;
     return false;
   }
 }
@@ -95,6 +100,7 @@ bool ConfigNode::data(std::string* ptr)
   }
   else
   {
+    ptr->clear();
     return false;
   }
 }
