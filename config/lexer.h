@@ -23,6 +23,7 @@
 
 class ConfigLexer {
 public:
+    ~ConfigLexer();
     bool get_token(int* type, std::string* data);
     void put_token(int type, std::string& data);
     void setScanner(ConfigScanner* scanner);

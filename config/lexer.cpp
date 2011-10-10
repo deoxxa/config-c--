@@ -6,6 +6,15 @@
 #include "scanner.h"
 #include "lexer.h"
 
+ConfigLexer::~ConfigLexer() {
+    while (!m_tokenStack.empty()) {
+        std::pair<int, std::string>* tmp = m_tokenStack.top();
+        delete tmp;
+        m_tokenStack.pop();
+    }
+    delete m_scanner;
+}
+
 void ConfigLexer::setScanner(ConfigScanner* scanner) {
     m_scanner = scanner;
 }

@@ -46,6 +46,7 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr) {
                 }
 
                 if (!parse(tmp_data, root)) {
+                    delete lexer;
                     return false;
                 }
 
@@ -111,6 +112,7 @@ bool ConfigParser::parse(std::string file, ConfigNode* ptr) {
             nodeStack.pop_back();
         }
     }
+    delete lexer;
 
     return true;
 }

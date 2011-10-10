@@ -24,6 +24,7 @@ int main() {
         for (; tmp_iter != tmp->end(); ++tmp_iter) {
             std::cout << *tmp_iter << "\n";
         }
+        delete tmp;
 
         std::cout << "\nKeys exist?\n";
         std::cout << "core.net.host: " << (config->has("core.net.host") ? "true" : "false") << "\n";
