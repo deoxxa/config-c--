@@ -1,2 +1,4 @@
 *.o
 app
+build/
+nbproject/
