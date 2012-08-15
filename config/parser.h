@@ -9,10 +9,9 @@
 #include "lexer.h"
 #include "node.h"
 
-class ConfigParser
-{
+class ConfigParser {
 public:
-  bool parse(std::string file, ConfigNode* ptr);
+    bool parse(std::string file, ConfigNode* ptr);
 };
 
 #endif
